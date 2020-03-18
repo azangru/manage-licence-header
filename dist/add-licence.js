@@ -22,10 +22,10 @@ const addLicence = async (argv) => {
     const template = fs_1.default.readFileSync(templatePath, 'utf-8');
     const filePaths = await paths_1.getFilePaths(fileList);
     filePaths.forEach((filePath) => {
-        console.log('filePath', filePath);
         const fileContent = fs_1.default.readFileSync(filePath, 'utf-8');
         const fileExtension = filePath.split('.').pop();
         const withLicence = licenceManager.addLicence(fileContent, template, config[fileExtension]);
+        console.log('withLicence', withLicence);
     });
 };
 exports.default = addLicence;
