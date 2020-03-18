@@ -1,31 +1,28 @@
 const fs = require('fs');
-const path = require('path');
 
+const {
+  getAbsolutePath,
+  getFilePaths
+} = require('./utils/paths');
 const licenceManager = require('./licence-manager');
 
-const licenceText = fs.readFileSync(path.resolve(__dirname, 'licence-header.txt'), 'utf-8');
-
-const addLicence = (argv) => {
+const addLicence = async (argv) => {
   const [_, ...fileList] = argv._;
   let { config: configPath, template: templatePath } = argv;
-  configPath = path.isAbsolute(configPath)
-    ? configPath
-    : path.resolve(process.cwd(), configPath);
-  templatePath = path.isAbsolute(templatePath)
-    ? templatePath
-    : path.resolve(process.cwd(), templatePath);
+  configPath = getAbsolutePath(configPath);
+  templatePath = getAbsolutePath(templatePath);
 
   const config = require(configPath);
   const template = fs.readFileSync(templatePath, 'utf-8');
+  const filePaths = await getFilePaths(fileList);
 
-  fileList.forEach((fileName) => {
-    const filePath = path.isAbsolute(fileName)
-      ? filePath
-      : path.resolve(process.cwd(), fileName);
+  filePaths.forEach((filePath) => {
     const fileContent = fs.readFileSync(filePath, 'utf-8');
     const fileExtension = filePath.split('.').pop();
     const withLicence = licenceManager.addLicence(fileContent, template, config[fileExtension]);
     console.log('withLicence', withLicence);
+
+
     // fs.writeFileSync(filePath, withLicence);
   });
 };
