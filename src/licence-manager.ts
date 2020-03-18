@@ -1,7 +1,7 @@
 import { Config } from './config';
 
 const addLicence = (fileContent: string, licenceText: string, config: Config) => {
-  if (!shouldAddLicence(fileContent, licenceText)) {
+  if (!hasLicence(fileContent, licenceText, config)) {
     return fileContent;
   }
   const licenceComment = prepareLicenceComment(licenceText, config);
@@ -27,7 +27,7 @@ const prepareLicenceComment = (licenceText: string, config: Config) => {
     eachLine: {
       prepend: prependEachLine = '',
       append: appendEachLine = ''
-    }
+    } = {}
   } = config;
   const lines = licenceText.split('\n');
   const result = [];
@@ -48,8 +48,9 @@ const prepareLicenceComment = (licenceText: string, config: Config) => {
   return result.join('\n');
 };
 
-const shouldAddLicence = (fileContent: string, licenceText: string) => {
-  return !fileContent.includes(licenceText.trim());
+const hasLicence = (fileContent: string, licenceText: string, config: Config) => {
+  const comment = prepareLicenceComment(licenceText, config);
+  return !fileContent.includes(comment);
 };
 
 export {

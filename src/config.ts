@@ -1,15 +1,16 @@
 export type Config = {
-  [fileExtension: string]: {
+  prepend?: string,
+  append?: string,
+  eachLine?: {
     prepend?: string,
-    append?: string,
-    eachLine?: {
-      prepend?: string,
-      append?: string
-    }
+    append?: string
   }
 };
+export type Configs = {
+  [fileExtension: string]: Config
+};
 
-const jsCommentFormat = {
+const jsCommentFormat: Config = {
   prepend: "/**",
   append: "*/",
   eachLine: {
@@ -17,7 +18,7 @@ const jsCommentFormat = {
   }
 };
 
-module.exports = {
+export default {
   js: jsCommentFormat,
   ts: jsCommentFormat,
   tsx: jsCommentFormat
