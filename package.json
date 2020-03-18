@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "Script for adding licence header to source-code files",
   "main": "./dist/index.js",
-  "bin": "./dist/index.js",
+  "bin": {
+    "manage-licence-header": "./dist/index.js"
+  },
   "scripts": {
     "build": "rm -rf dist && tsc",
     "publish": "npm run build && git push origin master",
