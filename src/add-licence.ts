@@ -1,12 +1,18 @@
-const fs = require('fs');
+import fs from 'fs';
 
-const {
+import {
   getAbsolutePath,
   getFilePaths
-} = require('./utils/paths');
-const licenceManager = require('./licence-manager');
+} from './utils/paths';
+import * as licenceManager from './licence-manager';
 
-const addLicence = async (argv) => {
+export type Argv = {
+  _: string[],
+  config: string,
+  template: string,
+}
+
+const addLicence = async (argv: Argv) => {
   const [_, ...fileList] = argv._;
   let { config: configPath, template: templatePath } = argv;
   configPath = getAbsolutePath(configPath);
@@ -27,7 +33,4 @@ const addLicence = async (argv) => {
   });
 };
 
-// const filePaths = process.argv.slice(2);
-// filePaths.forEach(addLicence);
-
-module.exports = addLicence;
+export default addLicence;

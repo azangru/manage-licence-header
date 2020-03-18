@@ -1,7 +1,7 @@
-const yargs = require('yargs');
-const path = require('path');
+import yargs from 'yargs';
+import path from 'path';
 
-const addLicence = require('./add-licence');
+import addLicence, { Argv as ArgvForAddLicence } from './add-licence';
 
 const normalOptions = {
   config: {
@@ -9,7 +9,7 @@ const normalOptions = {
     describe: 'Rules for comment formatting'
   },
   template: {
-    default: path.resolve(__dirname, 'licence-header.txt'),
+    default: path.resolve(__dirname, '../text/licence-header.txt'),
     describe: 'Text of the header'
   }
 };
@@ -29,9 +29,9 @@ const replaceOptions = {
   }
 };
 
-const argv = yargs
+yargs
   .usage('Add licence header to your files')
-  .command('add', 'Add licence header', normalOptions, (argv) => {
+  .command('add', 'Add licence header', normalOptions, (argv: ArgvForAddLicence) => {
     addLicence(argv);
   })
   .command('remove', 'Remove licence header', normalOptions)

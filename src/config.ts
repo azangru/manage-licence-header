@@ -1,3 +1,14 @@
+export type Config = {
+  [fileExtension: string]: {
+    prepend?: string,
+    append?: string,
+    eachLine?: {
+      prepend?: string,
+      append?: string
+    }
+  }
+};
+
 const jsCommentFormat = {
   prepend: "/**",
   append: "*/",
