@@ -23,7 +23,7 @@ const prepareRegularPayload = async (argv: RegularArgv) => {
   configPath = getAbsolutePath(configPath);
   templatePath = getAbsolutePath(templatePath);
 
-  const config = await import(configPath);
+  const { default: config } = await import(configPath);
   const template = fs.readFileSync(templatePath, 'utf-8');
   const filePaths = await getFilePaths(fileList);
 
