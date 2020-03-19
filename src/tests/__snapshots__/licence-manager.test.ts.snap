@@ -10,7 +10,7 @@ exports[`licence-manager addLicence adds licence to the head of the file 1`] = `
 * lectus. Sed a aliquet odio. Proin consectetur lacus elit, non posuere eros
 * lobortis accumsan. Phasellus malesuada id velit eget aliquam. Aliquam sed lacus
 * lacinia, accumsan eros eu, eleifend erat.
-* 
+*
 * Aenean molestie nibh a consequat tempus. Donec nec sollicitudin felis. Fusce
 * felis sem, pharetra varius vestibulum et, fringilla at lectus. Vivamus id felis
 * auctor, consequat purus varius, finibus nunc. Suspendisse faucibus placerat
@@ -24,7 +24,7 @@ exports[`licence-manager addLicence adds licence to the head of the file 1`] = `
 * suscipit odio. Vivamus eu consequat metus. Vestibulum a nibh elementum,
 * sollicitudin nunc ut, faucibus enim. Pellentesque gravida massa est, ut tempor
 * felis porttitor iaculis.
-* 
+*
 * Quisque dui ante, tincidunt et nunc ut, dignissim pharetra orci. Nam eget
 * congue erat, eget auctor sem. Morbi ut tincidunt nibh. Nunc eget mollis erat.
 * Mauris pulvinar semper feugiat. Praesent odio augue, tincidunt in tincidunt ut,
@@ -49,7 +49,7 @@ exports[`licence-manager addLicence does not modify file already containing lice
 * lectus. Sed a aliquet odio. Proin consectetur lacus elit, non posuere eros
 * lobortis accumsan. Phasellus malesuada id velit eget aliquam. Aliquam sed lacus
 * lacinia, accumsan eros eu, eleifend erat.
-* 
+*
 * Aenean molestie nibh a consequat tempus. Donec nec sollicitudin felis. Fusce
 * felis sem, pharetra varius vestibulum et, fringilla at lectus. Vivamus id felis
 * auctor, consequat purus varius, finibus nunc. Suspendisse faucibus placerat
@@ -63,7 +63,7 @@ exports[`licence-manager addLicence does not modify file already containing lice
 * suscipit odio. Vivamus eu consequat metus. Vestibulum a nibh elementum,
 * sollicitudin nunc ut, faucibus enim. Pellentesque gravida massa est, ut tempor
 * felis porttitor iaculis.
-* 
+*
 * Quisque dui ante, tincidunt et nunc ut, dignissim pharetra orci. Nam eget
 * congue erat, eget auctor sem. Morbi ut tincidunt nibh. Nunc eget mollis erat.
 * Mauris pulvinar semper feugiat. Praesent odio augue, tincidunt in tincidunt ut,
@@ -89,7 +89,7 @@ exports[`licence-manager replaceLicence replaces old licence with the new one 1`
 * comedere carnem virus. Zonbi tattered for solum oculi eorum defunctis go lum
 * cerebro. Nescio brains an Undead zombies. Sicut malus putrid voodoo horror.
 * Nigh tofth eliv ingdead.
-* 
+*
 * Cum horribilem walking dead resurgere de crazed sepulcris creaturis, zombie
 * sicut de grave feeding iride et serpens. Pestilentia, shaun ofthe dead scythe
 * animated corpses ipsa screams. Pestilentia est plague haec decaying ambulabat
@@ -98,7 +98,7 @@ exports[`licence-manager replaceLicence replaces old licence with the new one 1`
 * moveri, brid eof reanimator sed in magna copia sint terribiles undeath
 * legionis. Alii missing oculis aliorum sicut serpere crabs nostram. Putridi
 * braindead odores kill and infect, aere implent left four dead.
-* 
+*
 * Lucio fulci tremor est dark vivos magna. Expansis creepy arm yof darkness ulnis
 * witchcraft missing carnem armis Kirkman Moore and Adlard caeruleum in locis.
 * Romero morbo Congress amarus in auras. Nihil horum sagittis tincidunt, zombie
