@@ -28,7 +28,7 @@ const prepareLicenceComment = (licenceText, config) => {
         result.push(prepend);
     }
     for (let line of lines) {
-        line = `${prependEachLine}${line}${appendEachLine}`;
+        line = `${prependEachLine}${line}${appendEachLine}`.trim();
         result.push(line);
     }
     if (append) {
