@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const addLicence = (fileContent, licenceText, config) => {
-    if (!shouldAddLicence(fileContent, licenceText)) {
+    if (!hasLicence(fileContent, licenceText, config)) {
         return fileContent;
     }
     const licenceComment = prepareLicenceComment(licenceText, config);
@@ -21,7 +21,7 @@ const replaceLicence = (fileContent, oldLicence, newLicence, config) => {
 exports.replaceLicence = replaceLicence;
 const prepareLicenceComment = (licenceText, config) => {
     licenceText = licenceText.trim();
-    const { prepend, append, eachLine: { prepend: prependEachLine = '', append: appendEachLine = '' } } = config;
+    const { prepend, append, eachLine: { prepend: prependEachLine = '', append: appendEachLine = '' } = {} } = config;
     const lines = licenceText.split('\n');
     const result = [];
     if (prepend) {
@@ -36,6 +36,7 @@ const prepareLicenceComment = (licenceText, config) => {
     }
     return result.join('\n');
 };
-const shouldAddLicence = (fileContent, licenceText) => {
-    return !fileContent.includes(licenceText.trim());
+const hasLicence = (fileContent, licenceText, config) => {
+    const comment = prepareLicenceComment(licenceText, config);
+    return !fileContent.includes(comment);
 };

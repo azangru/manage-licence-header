@@ -7,7 +7,7 @@ const jsCommentFormat = {
         prepend: '* '
     }
 };
-module.exports = {
+exports.default = {
     js: jsCommentFormat,
     ts: jsCommentFormat,
     tsx: jsCommentFormat

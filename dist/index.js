@@ -6,7 +6,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const yargs_1 = __importDefault(require("yargs"));
 const path_1 = __importDefault(require("path"));
-const add_licence_1 = __importDefault(require("./add-licence"));
+const runner_1 = require("./runner");
 const normalOptions = {
     config: {
         default: path_1.default.resolve(__dirname, 'config.js'),
@@ -34,8 +34,12 @@ const replaceOptions = {
 yargs_1.default
     .usage('Add licence header to your files')
     .command('add', 'Add licence header', normalOptions, (argv) => {
-    add_licence_1.default(argv);
+    runner_1.addLicence(argv);
 })
-    .command('remove', 'Remove licence header', normalOptions)
-    .command('replace', 'Replace old licence header with new one', replaceOptions)
+    .command('remove', 'Remove licence header', normalOptions, (argv) => {
+    runner_1.removeLicence(argv);
+})
+    .command('replace', 'Replace old licence header with new one', replaceOptions, (argv) => {
+    runner_1.replaceLicence(argv);
+})
     .argv;

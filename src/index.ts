@@ -3,7 +3,14 @@
 import yargs from 'yargs';
 import path from 'path';
 
-import addLicence, { Argv as ArgvForAddLicence } from './add-licence';
+import {
+  addLicence,
+  removeLicence,
+  replaceLicence
+} from './runner';
+import {
+  ReplaceArgv
+} from './prepare-payload';
 
 const normalOptions = {
   config: {
@@ -33,9 +40,13 @@ const replaceOptions = {
 
 yargs
   .usage('Add licence header to your files')
-  .command('add', 'Add licence header', normalOptions, (argv: ArgvForAddLicence) => {
+  .command('add', 'Add licence header', normalOptions, (argv) => {
     addLicence(argv);
   })
-  .command('remove', 'Remove licence header', normalOptions)
-  .command('replace', 'Replace old licence header with new one', replaceOptions)
+  .command('remove', 'Remove licence header', normalOptions, (argv) => {
+    removeLicence(argv);
+  })
+  .command('replace', 'Replace old licence header with new one', replaceOptions, (argv) => {
+    replaceLicence(argv as ReplaceArgv);
+  })
   .argv;
