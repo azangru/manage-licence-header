@@ -16,7 +16,6 @@ const getFilePathsFromGlob = async (pattern: string | string[]) => {
 const getFilePaths = async (patterns: string[]) => {
   const filePathsPromises = getFilePathsFromGlob(patterns);
   const filePaths = await Promise.resolve(filePathsPromises);
-  console.log('filePaths', filePaths);
   return filePaths.flat(Infinity)
 }
 

@@ -16,13 +16,8 @@ const getFilePathsFromGlob = async (pattern) => {
     return await globby_1.default(pattern, { absolute: true });
 };
 const getFilePaths = async (patterns) => {
-    const filePathsPromises = patterns.reduce((result, pattern) => {
-        console.log('pattern', pattern);
-        console.log('result', getFilePathsFromGlob(pattern));
-        return result.concat(getFilePathsFromGlob(pattern));
-    }, []);
-    const filePaths = await Promise.all(filePathsPromises);
-    console.log('filePaths', filePaths);
+    const filePathsPromises = getFilePathsFromGlob(patterns);
+    const filePaths = await Promise.resolve(filePathsPromises);
     return filePaths.flat(Infinity);
 };
 exports.getFilePaths = getFilePaths;

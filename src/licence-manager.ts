@@ -1,7 +1,7 @@
 import { Config } from './config';
 
 const addLicence = (fileContent: string, licenceText: string, config: Config) => {
-  if (!hasLicence(fileContent, licenceText, config)) {
+  if (hasLicence(fileContent, licenceText)) {
     return fileContent;
   }
   const licenceComment = prepareLicenceComment(licenceText, config);
@@ -48,9 +48,20 @@ const prepareLicenceComment = (licenceText: string, config: Config) => {
   return result.join('\n');
 };
 
-const hasLicence = (fileContent: string, licenceText: string, config: Config) => {
-  const comment = prepareLicenceComment(licenceText, config);
-  return !fileContent.includes(comment);
+const hasLicence = (fileContent: string, licenceText: string) => {
+  const licenceTextLines = licenceText.split('\n');
+  const fileContentLines = fileContent.split('\n');
+  const firstLineIndex = fileContentLines.findIndex((line) => line.includes(licenceTextLines[0]));
+
+  if (firstLineIndex === -1) {
+    return false;
+  }
+
+  const hasLicence = licenceTextLines.every((licenceLine, index) => {
+    const lineInFile = fileContentLines[index + firstLineIndex];
+    return lineInFile.includes(licenceLine);
+  });
+  return hasLicence;
 };
 
 export {
